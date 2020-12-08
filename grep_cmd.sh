@@ -9,19 +9,19 @@ grep user /etc/passwd --color=auto
 echo "---------------------Search for line begining with 'user'---------------------------------"
 grep ^user /etc/passwd --color=auto
 echo "---------------------Search for line containing 'awk'----------------------------------"
-man awk | grep awk
+man awk | grep awk --color=auto
 echo "---------------------Search for line containing 'awk' ignore case---------------------------------"
-man awk | grep -i awk
+man awk | grep -i awk --color=auto
 echo "----------------------Search for line **NOT** containing 'awk'------------------------------"
 man awk | grep -v awk | tail
 echo "----------------------Search for lines containing 'awk' and show the count as result------------------------------"
 man awk | grep -c awk
 echo "----------------------Search for line containing 'awk' and show 2 more lines after------------------------------"
-man awk | grep -A2 awk
+man awk | grep -A2 awk --color=auto
 echo "----------------------Search for line containing 'awk' and show 2 more lines before------------------------------"
-man awk | grep -B2 awk
+man awk | grep -B2 awk --color=auto
 echo "----------------------Search for line containing 'awk' and two lines surrounding the context ie, before and after------------------------------"
-man awk | grep -C2 awk
+man awk | grep -C2 awk --color=auto
 echo "----------------------Search for line containing 'North'------------------------------"
 grep 'North' sales_records.csv --color=auto
 echo "-----------------------Search for line begining with 'North' -----------------------------"
@@ -31,7 +31,7 @@ grep '25$' sales_records.csv --color=auto
 echo "-----------------------Search for empty lines-----------------------------"
 grep '^$' sales_records.csv --color=auto
 echo "-----------------------Search for **NON EMPTY** lines-----------------------------"
-grep -v '^$' sales_records.csv --color=auto
+grep -v '^$' sales_records.csv --color=auto | tail
 echo "-----------------------Search for lines starting with characters from G ~ O-----------------------------"
 grep '^[G-O]' sales_records.csv --color=auto
 echo "-----------------------Seach for lins ending between 0 ~ 2-----------------------------"
