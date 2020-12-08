@@ -1,6 +1,6 @@
 #!/bin/bash
 clear
-echo "----------------------------------------------------"
+echo "********************** STARTING **********************"
 echo "grep --version"
 echo "=============="
 grep --version
@@ -25,9 +25,9 @@ echo "man awk | grep -i awk"
 echo "==========================="
 man awk | grep -i awk
 echo "----------------------------------------------------"
-echo "man awk | grep -v awk"
+echo "man awk | grep -v awk | tail"
 echo "==========================="
-man awk | grep -v awk
+man awk | grep -v awk | tail
 echo "----------------------------------------------------"
 echo "man awk | grep -c awk"
 echo "==========================="
