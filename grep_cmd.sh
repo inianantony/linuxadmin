@@ -1,6 +1,6 @@
 #!/bin/bash
 clear
-echo "********************** STARTING **********************"
+echo "********************* STARTING *********************"
 echo "grep --version"
 echo "=============="
 grep --version
