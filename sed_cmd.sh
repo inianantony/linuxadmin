@@ -10,8 +10,10 @@ echo "-------------------Print the n number of lins in range--------------------
 sed -n '2,$ p ' /etc/passwd
 echo "-------------------Print the line begining with root , ie the pattern between the 2 slashes-----------------------------------"
 sed -n '/^root/ p ' /etc/passwd
-echo "------------------------------------------------------"
-echo "------------------------------------------------------"
+echo "-------------------Print the lines 6 ~ 9 and replace 20 with @@ -----------------------------------"
+sed -n ' 6,9 s/20/@@/p ' sales_records.csv 
+echo "-------------------Print the lines 6 ~ 9 and replace /20 with ^~~ Note: here we used @ as command seperator-----------------------------------"
+sed -n ' 6,9 s@/20@^~~@p ' sales_records.csv 
 echo "------------------------------------------------------"
 echo "------------------------------------------------------"
 echo "------------------------------------------------------"
