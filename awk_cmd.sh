@@ -20,6 +20,12 @@ echo "--------------Inside the sed command, delete the lines with sapce and then
 cp ./files/catalog/tool.xml ./files/catalog/wtool.xml
 sed -i ' /^\s*$/d;/^<\/product/a \ ' ./files/catalog/wtool.xml 
 awk -f ./files/virtualhost.awk search=saw ./files/catalog/wtool.xml 
+echo "--------------Inside the sed command, delete the lines with sapce and then add a new line with just space ;----------------------------------------"
+echo "--------------Use space and new line as record seperator and search for pattern and match using ~ symbol----------------------------------------"
+echo "--------------Use the > and < symbols as the field seperators, so the sring is split when any of those occurances are found----------------------------------------"
+cp ./files/catalog/tool.xml ./files/catalog/wtool.xml
+sed -i ' /^\s*$/d;/^<\/product/a \ ' ./files/catalog/wtool.xml 
+awk -f ./files/virtualhost_formatted.awk search=saw ./files/catalog/wtool.xml 
 echo "------------------------------------------------------"
 echo "------------------------------------------------------"
 echo "------------------------------------------------------"
