@@ -1,19 +1,24 @@
 #!/bin/bash
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    alias sed='gsed'
+fi
 clear
 echo "-------------------Print the result using p---------------------------------"
-sed ' p ' /etc/passwd
+sed ' p ' ./files/sample.txt
 echo "-------------------Print the result using p but supress the standard output---------------------------------"
-sed -n ' p ' /etc/passwd
+sed -n ' p ' ./files/sample.txt
 echo "-------------------Print the n number of lins in range-----------------------------------"
-sed -n '1,3 p ' /etc/passwd
+sed -n '1,3 p ' ./files/sample.txt
 echo "-------------------Print the n number of lins in range-----------------------------------"
-sed -n '2,$ p ' /etc/passwd
-echo "-------------------Print the line begining with root , ie the pattern between the 2 slashes-----------------------------------"
-sed -n '/^root/ p ' /etc/passwd
+sed -n '2,$ p ' ./files/sample.txt
+echo "-------------------Print the line begining with '2' , ie the pattern between the 2 slashes-----------------------------------"
+sed -n '/^2/ p ' ./files/sample.txt
 echo "-------------------Print the lines 6 ~ 9 and replace 20 with @@ -----------------------------------"
 sed -n ' 6,9 s/20/@@/p ' sales_records.csv 
-echo "-------------------Print the lines 6 ~ 9 and replace /20 with ^~~ Note: here we used @ as command seperator-----------------------------------"
+echo "-------------------Print the lines 6 ~ 9 and replace /20 with ^~~ Note: here we used @ as delimiter-----------------------------------"
 sed -n ' 6,9 s@/20@^~~@p ' sales_records.csv 
+echo "-------------------Print the lines 6 ~ 9 and substituting the begining of line with 4 space for intending -----------------------------------"
+sed -n ' 6,9 s/^/    /p' ./files/parsecsv.sh
 echo "------------------------------------------------------"
 echo "------------------------------------------------------"
 echo "------------------------------------------------------"
@@ -91,4 +96,5 @@ echo "------------------------------------------------------"
 echo "------------------------------------------------------"
 echo "------------------------------------------------------"
 echo "------------------------------------------------------"
-echo "------------------------------------------------------"
+
+unalias sed
