@@ -36,9 +36,24 @@ sed -f ./files/multiline.sed ./files/sample.txt
 echo "--------------------Make the change to the file by passing -i command and create back up by also adding .bak ----------------------------------"
 cp ./files/sample.txt ./files/msample.txt
 sed -i.bak -f ./files/multiline.sed ./files/msample.txt
-echo "------------------------------------------------------"
-echo "------------------------------------------------------"
-echo "------------------------------------------------------"
+echo "--------------------Substitute the first group with upper cases letters----------------------------------"
+echo "--------------------The first s is to tell sed is used for substitution and between the two // is the selection----------------------------------"
+echo "--------------------brackets denote the grouping, but we need to escape the brackets, inside square brackets tell it to select everyting not a comma ----------------------------------"
+echo "--------------------Between the next two // are the substitution command \U is to upper case the selected data and \1 denotes the first group----------------------------------"
+sed 's/\([^,]*\)/\U\1/' ./files/employees
+echo "--------------------Substitute the first group with upper cases letters and second group with lowercase letter----------------------------------"
+sed 's/\([^,]*\),\([^,]*\)/\U\1,\L\2/' ./files/employees
+echo "---------------------Add some commands to file content and then execute them line by line ( note the space after -l)---------------------------------"
+sed 's/^/ls -l /e' ./files/list.txt 
+echo "---------------------Use sed together with vim---------------------------------"
+echo "---------------------Show line numbers , Add line indent, extract part of file by writing it out, read extracted and import---------------------------------"
+vim ./files/parsecsv.sh
+:set number
+:6,9s/^/   /
+:4,10 w while
+:wq
+vim new
+:r while
 echo "------------------------------------------------------"
 echo "------------------------------------------------------"
 echo "------------------------------------------------------"
