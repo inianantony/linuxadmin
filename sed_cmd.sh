@@ -46,9 +46,10 @@ sed 's/\([^,]*\),\([^,]*\)/\U\1,\L\2/' ./files/employees
 echo "---------------------Add some commands to file content and then execute them line by line ( note the space after -l)---------------------------------"
 sed 's/^/ls -l /e' ./files/list.txt 
 echo "---------------------Use sed together with vim---------------------------------"
-echo "---------------------Show line numbers , Add line indent, extract part of file by writing it out, read extracted and import---------------------------------"
+echo "---------------------Show line numbers , delete 1st line, Add line indent, extract part of file by writing it out, read extracted and import---------------------------------"
 vim ./files/parsecsv.sh
 :set number
+:1 d
 :6,9s/^/   /
 :4,10 w while
 :wq
