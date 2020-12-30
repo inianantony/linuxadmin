@@ -26,8 +26,10 @@ echo "--------------Use the > and < symbols as the field seperators, so the srin
 cp ./files/catalog/tool.xml ./files/catalog/wtool.xml
 sed -i ' /^\s*$/d;/^<\/product/a \ ' ./files/catalog/wtool.xml 
 awk -f ./files/catalog.awk search=saw ./files/catalog/wtool.xml 
-echo "------------------------------------------------------"
-echo "------------------------------------------------------"
+echo "--------------Print online sales records----------------------------------------"
+awk -F"," '$4 == "Online" { print $0 }' sales_records.csv
+echo "--------------Use awk to generate summary of sales, this idea can be used to summarize log files eg) Ip access----------------------------------------"
+awk -f ./files/count.awk ./sales_records.csv 
 echo "------------------------------------------------------"
 echo "------------------------------------------------------"
 echo "------------------------------------------------------"
