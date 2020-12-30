@@ -8,8 +8,10 @@ echo "--------------Seperate commands on line line by using ; ------------------
 echo "--------------$1, $2, $3 denotes the data that is after spliting--------------------------------------"
 echo "--------------BEGIN and END can only be used once--------------------------------------"
 awk -f ./files/users.awk /etc/passwd | less
-echo "----------------------------------------------------"
-echo "------------------------------------------------------"
+echo "--------------User awk to capitalize first group and lower case second group--------------------------------------"
+awk -F"," ' { print toupper($1), tolower($2), $3 } ' ./files/employees
+echo "--------------Extract 3 fields from csv and pretty print output with using NumberofSeperations NS variable ----------------------------------------"
+awk -f ./files/prettyextract.awk sales_records.csv 
 echo "------------------------------------------------------"
 echo "------------------------------------------------------"
 echo "------------------------------------------------------"
