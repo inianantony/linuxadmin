@@ -25,7 +25,7 @@ echo "--------------Use space and new line as record seperator and search for pa
 echo "--------------Use the > and < symbols as the field seperators, so the sring is split when any of those occurances are found----------------------------------------"
 cp ./files/catalog/tool.xml ./files/catalog/wtool.xml
 sed -i ' /^\s*$/d;/^<\/product/a \ ' ./files/catalog/wtool.xml 
-awk -f ./files/virtualhost_formatted.awk search=saw ./files/catalog/wtool.xml 
+awk -f ./files/catalog.awk search=saw ./files/catalog/wtool.xml 
 echo "------------------------------------------------------"
 echo "------------------------------------------------------"
 echo "------------------------------------------------------"
