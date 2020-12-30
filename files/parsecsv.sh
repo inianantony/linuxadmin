@@ -3,8 +3,8 @@ OLDIFS=$IFS
 IFS=","
 while read product price quantity
 do
-echo -e "\e[1;33m$product \
-========================\e[0m\n\
+echo "$product \
+========================\n\
 Price : \t $price \n\
 Quantity : \t $quantity \n"
 done < $1

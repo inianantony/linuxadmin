@@ -12,8 +12,14 @@ echo "--------------User awk to capitalize first group and lower case second gro
 awk -F"," ' { print toupper($1), tolower($2), $3 } ' ./files/employees
 echo "--------------Extract 3 fields from csv and pretty print output with using NumberofSeperations NS variable ----------------------------------------"
 awk -f ./files/prettyextract.awk sales_records.csv 
-echo "------------------------------------------------------"
-echo "------------------------------------------------------"
+echo "--------------Inside the sed command, delete the lines with sapce and then add a new line with just space ; Use space and new line as record seperator and search for pattern and match using ~ symbol----------------------------------------"
+cp ./files/virtualhost.conf ./files/wvirtualhost.conf
+sed -i ' /^\s*$/d;/^<\/VirtualHost/a \ ' ./files/wvirtualhost.conf
+awk -f ./files/virtualhost.awk search=linux ./files/wvirtualhost.conf
+echo "--------------Inside the sed command, delete the lines with sapce and then add a new line with just space ; Use space and new line as record seperator and search for pattern and match using ~ symbol----------------------------------------"
+cp ./files/catalog/tool.xml ./files/catalog/wtool.xml
+sed -i ' /^\s*$/d;/^<\/product/a \ ' ./files/catalog/wtool.xml 
+awk -f ./files/virtualhost.awk search=saw ./files/catalog/wtool.xml 
 echo "------------------------------------------------------"
 echo "------------------------------------------------------"
 echo "------------------------------------------------------"
