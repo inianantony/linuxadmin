@@ -58,7 +58,8 @@ echo "-----------------------Seach for string start end with or without **ONE** 
 grep -E 'start\s?end' sales_records.csv
 echo "-----------------------Seach for string start end with exactly 2 space in the middle of the two letters-------------------------------"
 grep -E 'start\s{2}end' sales_records.csv
-echo "------------------------------------------------------"
+echo "-----------------------Search for `europe` case insensitively and prints the line numbers -------------------------------"
+grep -ni europe sales_records.csv 
 echo "------------------------------------------------------"
 echo "------------------------------------------------------"
 echo "------------------------------------------------------"
