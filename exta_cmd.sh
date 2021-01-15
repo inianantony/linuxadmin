@@ -56,6 +56,34 @@ tail -n 10 sales_records.csv # print the last 10 lines in a file
 echo "-------------------wc command---------------------------------"
 wc sales_records.csv  # outputs the number of lines in 1st column, words in second and ASCII bytes in 3rd
 wc -l sales_records.csv # only prints lines , -w for wordcount
+echo "-------------------sort command---------------------------------"
+awk -F"," ' { print $1 } ' ./sales_records.csv > "wsort.txt" # extract the country names into wsort.txt file
+sort wsort.txt # sort the content alphabetically use -r to reverse sorting and -n to sort numerically
+sort -u --ignore-case wsort.txt ## -u to remove duplicates
+echo "-------------------uniq command---------------------------------"
+sort wsort.txt | uniq -c # print the number of duplicates with its count
+sort wsort.txt | uniq # print only the number of duplicates
+sort wsort.txt | uniq -c | sort -nr # sort the country names, the count the duplicates and then sort again by most duplicated entry
+echo "-------------------diff command---------------------------------"
+diff -y wsort.txt sales_records.csv
+diff -u wsort.txt sales_records.csv
+diff -rq ./files/ ./files/catalog #Only interested in which files differ, rather than the content, use the r and q options, else use -u option
+echo "-------------------echo command---------------------------------"
+echo "hello" >> output.txt # append the output to a file
+echo "The path variable is $PATH" # interpolate environment variables
+echo The cost is \$5 # special characters need to be escaped with a backslash \. $ for example
+echo * # echo the files in the current folder
+echo o* # echo the files in the current folder that start with the letter o
+echo ~ # print your home folder path
+echo $(ls -al) # also execute commands, and print the result to the standard output or to file
+echo "$(ls -al)" #To preserve whitespace wrap in quotes
+echo {1..5} # generate a list of strings, for example ranges
+echo "-------------------chown chgrp command---------------------------------"
+chown <owner> <file> # change ownership of file
+chown <owner>:<group> <file> # change owner and group
+chown -R <owner> <file> # change the ownership of a directory, and recursively all the files contained, plus all the subdirectories and the files contained in them
+chgrp <group> <filename> # just change the group of a file using the chgrp
+
 
 
 
