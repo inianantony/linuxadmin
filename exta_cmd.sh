@@ -53,6 +53,9 @@ less sales_records.csv #hows you the content stored inside a file, in a nice and
 echo "-------------------tail command---------------------------------"
 tail -f sales_records.csv #opens the file at the end, and watches for file changes
 tail -n 10 sales_records.csv # print the last 10 lines in a file
+echo "-------------------wc command---------------------------------"
+wc sales_records.csv  # outputs the number of lines in 1st column, words in second and ASCII bytes in 3rd
+wc -l sales_records.csv # only prints lines , -w for wordcount
 
 
 
